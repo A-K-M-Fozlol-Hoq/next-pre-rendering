@@ -20,7 +20,9 @@ const ArticleListByCategory = (props) => {
 export default ArticleListByCategory;
 
 export async function getServerSideProps(context) {
-  const { params } = context;
+  const { params, req, res, query } = context;
+  res.setHeader('Set-Cookie', 'name=Fozlol');
+  console.log(query);
   const { category } = params;
 
   const response = await fetch(
